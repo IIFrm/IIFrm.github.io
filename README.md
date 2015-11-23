@@ -1,7 +1,7 @@
 # Invariant Inference Framework:
 
 This is the result of our implementation of the paper [An Invariant Inference Framework by
-Active Learning and SVMs](./PDF/AnInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
+Active Learning and SVMs](http://iifrm.github.io/PDF/AnInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
 
 For you to run the experiments on your own machine, please follow the steps below to set up your experiment environment.
 
@@ -62,9 +62,9 @@ make
 -->
 
 ## Experiments results:
-* [simple2](./results/simple2.html)
-* [simple3](./results/simple3.html)
-* [ex1](./results/ex1.html)
-* [f1a](./results/f1a.html)
-* [f2](./results/f2.html)
-* [substring1](./results/substring1.html)
+* [simple2](http://iifrm.github.io/results/simple2.html)
+* [simple3](http://iifrm.github.io/results/simple3.html)
+* [ex1](http://iifrm.github.io/results/ex1.html)
+* [f1a](http://iifrm.github.io/results/f1a.html)
+* [f2](http://iifrm.github.io/results/f2.html)
+* [substring1](http://iifrm.github.io/results/substring1.html)
