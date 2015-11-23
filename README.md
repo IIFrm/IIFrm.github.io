@@ -1,7 +1,7 @@
 # Invariant Inference Framework:
 
 This is the result of our implementation of the paper [An Invariant Inference Framework by
-Active Learning and SVMs](../../Papers/AInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
+Active Learning and SVMs](./PDF/AnInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
 
 For you to run the experiments on your own machine, please follow the steps below to set up your experiment environment.
 
@@ -22,9 +22,8 @@ C:/Program Files
 
 ###Build InvariantInferenceFramework
 ```
-git clone git@github.com:lijiaying/InvariantInferenceFramework.git
-cd InvariantInferenceFramework
-cd test
+git clone git@github.com:IIFrm/IIF.git
+cd IIF
 mkdir build
 cd build
 cmake .. -G [your platform]  // just use cmake .. if you are not sure
