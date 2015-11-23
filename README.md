@@ -3,6 +3,11 @@
 This is the result of our implementation of the paper [An Invariant Inference Framework by
 Active Learning and SVMs](http://iifrm.github.io/PDF/AnInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
 
+##Documentation
+[HTML](http://iifrm.github.io/doc/html/index.html)
+[PDF](http://iifrm.github.io/doc/latex/refman.pdf)
+
+
 For you to run the experiments on your own machine, please follow the steps below to set up your experiment environment.
 
 ## Work on Invariant Inference Framework
@@ -30,7 +35,9 @@ cmake .. -G [your platform]  // just use cmake .. if you are not sure
 make
 ```
 
-## Add your tests to this framework
+
+
+### Add your tests to this framework
 #####As InvariantInferenceFramework is integrated with your examples, you need to do some modification on source code level before you can test your examples.
 * READ carefully one example file in test folder before you write your own test.
 * rewrite your loop code in a function with the name you like, my\_loop\_example for instance.
