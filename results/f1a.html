@@ -871,91 +871,36 @@ body .markdown-body
 <h2>
 <a id="user-content-program" class="anchor" href="#program" aria-hidden="true"><span class="octicon octicon-link"></span></a>program</h2>
 
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">main</span> (<span class="pl-k">int</span> argc, <span class="pl-k">char</span>** argv) {
-    <span class="pl-k">int</span> x;  
-    <span class="pl-k">int</span> y;
-    <span class="pl-c">//Precondition: x + y &gt;= 0</span>
-    <span class="pl-c">//assume (x + y &gt;= 0)</span>
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">f1a</span>(<span class="pl-k">int</span>* a) {
+    <span class="pl-k">int</span> x = a[<span class="pl-c1">0</span>];
+    <span class="pl-k">int</span> y = a[<span class="pl-c1">1</span>];
 
+    <span class="pl-c1">iif_assume</span>(x + y &gt;= <span class="pl-c1">0</span>);
     <span class="pl-k">while</span> (x &gt;= <span class="pl-c1">0</span>) {
+        <span class="pl-c1">recordi</span>(x, y);
         x--;
         y++;
     }
-
-    <span class="pl-c">// Postcondition: y &gt; 0</span>
-    <span class="pl-c">// assert (y &gt; 0);</span>
-    <span class="pl-c1">assert</span> (y &gt; <span class="pl-c1">0</span>);
-
-    <span class="pl-k">return</span> <span class="pl-c1">0</span>;
-}
-</pre></div>
-
-<h2>
-<a id="user-content-program-after-instrumentation" class="anchor" href="#program-after-instrumentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>program after instrumentation:</h2>
-
-<div class="highlight highlight-source-c"><pre>#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>stdio.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>time.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>stdlib.h<span class="pl-pds">&gt;</span></span>
-#<span class="pl-k">include</span><span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
-using namespace std;
-
-<span class="pl-k">int</span> x = -<span class="pl-c1">1</span>;
-<span class="pl-k">int</span> y = -<span class="pl-c1">1</span>;
-<span class="pl-k">bool</span> passP = <span class="pl-c1">false</span>;
-<span class="pl-k">bool</span> passQ = <span class="pl-c1">false</span>;
-
-
-<span class="pl-k">int</span> <span class="pl-en">main</span> (<span class="pl-k">int</span> argc, <span class="pl-k">char</span>** argv) {
-    <span class="pl-k">if</span> (argc &lt; <span class="pl-c1">3</span>) <span class="pl-k">return</span> -<span class="pl-c1">1</span>;
-    x = <span class="pl-c1">atoi</span>(argv[<span class="pl-c1">1</span>]);
-    y = <span class="pl-c1">atoi</span>(argv[<span class="pl-c1">2</span>]);
-
-    <span class="pl-c">//Precondition: x + y &gt;= 0</span>
-    <span class="pl-c">//assume (x + y &gt;= 0)</span>
-    <span class="pl-k">if</span> (x + y &gt;= <span class="pl-c1">0</span>)
-        passP = <span class="pl-c1">true</span>;
-
-    <span class="pl-k">while</span> (x &gt;= <span class="pl-c1">0</span>) {
-        <span class="pl-k">if</span> (passP) 
-            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>? 1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-        <span class="pl-k">else</span>
-            cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>? -1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-        x--;
-        y++;
-    }
-
-    <span class="pl-c">// Postcondition: y &gt; 0</span>
-    <span class="pl-c">// assert (y &gt; 0);</span>
-    <span class="pl-k">if</span> (y &gt; <span class="pl-c1">0</span>)
-        passQ = <span class="pl-c1">true</span>;
-    <span class="pl-k">if</span> (passP) {
-        <span class="pl-k">if</span> (passQ) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>+ 1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-        <span class="pl-k">else</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>x 1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-    } <span class="pl-k">else</span> {
-        <span class="pl-k">if</span> (passQ) cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>- -1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-        <span class="pl-k">else</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>+ -1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
-    }
-
+    <span class="pl-c1">recordi</span>(x, y);
+    <span class="pl-c1">iif_assert</span>(y &gt; <span class="pl-c1">0</span>);
     <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 
 <h2>
 <a id="user-content-selective-learning-results" class="anchor" href="#selective-learning-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selective Learning Results:</h2>
 
-<p><a href="https://github.com/lijiaying/FIIF/blob/master/examples/f1a/out2">out2</a></p>
-
-<pre><code>make: 'ALL' is up to date.
-************************************** start **************************************************************
- ...1...svm... 0.00926973426457344[0]  +  0.0104709930086993[1] &gt;= -0.368797146953314   [100% (350/350)]
- ...2...svm... 0.020313143635396[0]  +  0.0229492857953537[1] &gt;= 0.383153915722619  [100% (471/471)]
- ...3...svm... 0.0410113686836006[0]  +  0.046318722277949[1] &gt;= -0.244908329531353 [100% (792/792)]
- ...4...svm... 0.0877162707515002[0]  +  0.0990677881428709[1] &gt;= 0.61501133795409  [100% (803/803)]
- ...5...svm... 0.182347966178557[0]  +  0.205869915446392[1] &gt;= 0.200042287482267   [100% (1005/1005)]
- ...6...svm... 0.380792614224735[0]  +  0.428379708498254[1] &gt;= -0.66593173971955   [100% (1319/1319)]
- ...7...svm... 1.99952762323796[0]  +  1.99948467989596[1] &gt;= -1.00030060339406 [100% (1456/1456)]
- ...8...svm... 1.99924066014287[0]  +  1.99925150785511[1] &gt;= -1.00017356339602 [100% (1699/1699)]
- ...9...svm... 1.99924066014287[0]  +  1.99925150785511[1] &gt;= -1.00017356339602 [100% (1765/1765)]
- ...*************************************  end  *************************************************************
-adjust coefficiency...&gt;&gt;  2[0]  +  2[1] &gt;= -1
+<pre><code>TRY SVM method ...
+[1]|--&gt;&gt; SVM: 0.04261108191180227{0}  +  0.04533095890326298{1} &gt;= -0.4687199553033317
+[2]|--&gt;&gt; SVM: 0.119927252649232{0}  +  0.1276104439945637{1} &gt;= 0.4972414153670788
+[3]|--&gt;&gt; SVM: 0.2520062251914799{0}  +  0.2703577033138738{1} &gt;= -0.06307933513310893
+[4]|--&gt;&gt; SVM: 0.3969270273942119{0}  +  0.404562062402048{1} &gt;= -0.6106132146003596
+[5]|--&gt;&gt; SVM: 1.99954774622784{0}  +  1.999554206995981{1} &gt;= -0.9995477462298936
+[6]|--&gt;&gt; SVM: 1.99953543312437{0}  +  1.999541797054178{1} &gt;= -1.000534570100932
+[7]|--&gt;&gt; SVM: 1.999535398125963{0}  +  1.999541762535188{1} &gt;= -1.000534610375297
+--------------------------------------------------------------------------------------------------------------------
+Finish running svm for 7 times.
+  Hypothesis Invairant(Converged): {
+        2{0}  +  2{1} &gt;= -1
+  }
 </code></pre>
 </article></body></html>

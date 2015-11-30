@@ -1,41 +1,39 @@
-# IIF experiment results:
+# pldi08
 
-This is the result of our implementation of the paper [An Invariant Inference Framework by
-Active Learning and SVMs](./IIF.pdf) by Li Jiaying.
+## source 
+[Interpolants as Classifier](http://theory.stanford.edu/~aiken/publications/papers/cav12a.pdf) by Rahul Sharma, Aditya V. Nori, and Alex Aiken
 
-For you to run the experiments on your own machine, please follow the steps below to set up your experiment environment.
 
-## Setup:
+## program
+```c
+int substring1(int* a) {
+	int j;
+	int i = a[0];
+	int k = a[1];
 
-Dependencies:
-
-* [libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) remember to put {libsvm}/bin folder into $PATH
-* [klee](https://klee.github.io/)
-
-Optional dependencies:
-
-* [libdwarf](http://pkgs.fedoraproject.org/repo/pkgs/libdwarf/) for C programs
-
-**NOTE**: If you have difficulty in installing libdwarf, the following page may help you. 
-[building hhvm dependencies]
-(https://community.webfaction.com/questions/18567/building-hhvm-dependencies-libdwarf-not-finding-libelf)
-```
-wget 'http://www.prevanders.net/libdwarf-20140413.tar.gz'
-tar -xzf libdwarf-20140413.tar.gz
-cd dwarf-20140413/libdwarf
-export CPPFLAGS="-I$HOME/include $CPPFLAGS"
-export LDFLAGS="-L$HOME/lib $LDFLAGS"
-./configure --prefix=$HOME
-make
-cp ./dwarf.h $HOME/include
-cp ./libdwarf.h $HOME/include
-cp ./libdwarf.a $HOME/lib
+	iif_assume ((i >= 0) && (i <= k) && (k >= 0) && (k <= 100)); 
+	while (i < k) {
+		recordi(i, k);
+		i++;	
+		j++;
+	}
+	recordi(i, k);
+	iif_assert(j >= 101);
+	return 0;
+}
 ```
 
-## Experiments results:
-* [simple2](./simple2.html)
-* [simple3](./simple3.html)
-* [ex1](ex1.html)
-* [f1a](f1a.html)
-* [f2](f2.html)
-* [substring1](substring1.html)
+
+
+
+## Selective Learning Results:
+
+
+```
+TRY SVM method ...
+[1]}
+Program BUG! Program have encountered a Counter-Example trace.
+	Tr.0:(32,43)->(33,43)->(34,43)->(35,43)->(36,43)->(37,43)->(38,43)->(39,43)->(40,43)->(41,43)->(42,43)->(43,43)->end.
+```
+
+## Reason

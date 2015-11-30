@@ -860,8 +860,8 @@ body .markdown-body
   float: left;
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
-}</style><title>ex1</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-ex1" class="anchor" href="#ex1" aria-hidden="true"><span class="octicon octicon-link"></span></a>ex1</h1>
+}</style><title>substring1</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-pldi08" class="anchor" href="#pldi08" aria-hidden="true"><span class="octicon octicon-link"></span></a>pldi08</h1>
 
 <h2>
 <a id="user-content-source" class="anchor" href="#source" aria-hidden="true"><span class="octicon octicon-link"></span></a>source</h2>
@@ -871,27 +871,19 @@ body .markdown-body
 <h2>
 <a id="user-content-program" class="anchor" href="#program" aria-hidden="true"><span class="octicon octicon-link"></span></a>program</h2>
 
-<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">ex1</span>(<span class="pl-k">int</span>* a) {
-    <span class="pl-k">int</span> x;
-    <span class="pl-k">int</span> y;
-    <span class="pl-k">int</span> xa = a[<span class="pl-c1">0</span>];
-    <span class="pl-k">int</span> ya = a[<span class="pl-c1">1</span>];
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">substring1</span>(<span class="pl-k">int</span>* a) {
+    <span class="pl-k">int</span> j;
+    <span class="pl-k">int</span> i = a[<span class="pl-c1">0</span>];
+    <span class="pl-k">int</span> k = a[<span class="pl-c1">1</span>];
 
-    <span class="pl-c1">iif_assume</span>(xa + <span class="pl-c1">2</span> * ya &gt;= <span class="pl-c1">0</span>);
-    <span class="pl-k">while</span> (<span class="pl-c1">nondet</span>()) {
-        <span class="pl-c1">recordi</span>(xa, ya);
-        x = xa + <span class="pl-c1">2</span> * ya;
-        y = -<span class="pl-c1">2</span> * xa + ya;
-
-        x++;
-        <span class="pl-k">if</span> (<span class="pl-c1">nondet</span>()) y = y + x;
-        <span class="pl-k">else</span> y = y - x;
-
-        xa = x - <span class="pl-c1">2</span> * y;
-        ya = <span class="pl-c1">2</span> * x + y;
+    <span class="pl-c1">iif_assume</span> ((i &gt;= <span class="pl-c1">0</span>) &amp;&amp; (i &lt;= k) &amp;&amp; (k &gt;= <span class="pl-c1">0</span>) &amp;&amp; (k &lt;= <span class="pl-c1">100</span>)); 
+    <span class="pl-k">while</span> (i &lt; k) {
+        <span class="pl-c1">recordi</span>(i, k);
+        i++;    
+        j++;
     }
-    <span class="pl-c1">recordi</span>(xa, ya);
-    <span class="pl-c1">iif_assert</span>(xa + <span class="pl-c1">2</span> * ya &gt;= <span class="pl-c1">0</span>);
+    <span class="pl-c1">recordi</span>(i, k);
+    <span class="pl-c1">iif_assert</span>(j &gt;= <span class="pl-c1">101</span>);
     <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 
@@ -899,57 +891,10 @@ body .markdown-body
 <a id="user-content-selective-learning-results" class="anchor" href="#selective-learning-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selective Learning Results:</h2>
 
 <pre><code>TRY SVM method ...
-[1]|--&gt;&gt; SVM: 0.01889804805845494{0}  +  0.03644623554130595{1} &gt;= 0.6684276714464504
-[2]|--&gt;&gt; SVM: 0.03776920261219901{0}  +  0.07285692191044463{1} &gt;= 0.3386962999612404
-[3]|--&gt;&gt; SVM: 0.08135486688942134{0}  +  0.1568986718581696{1} &gt;= -0.4247048698533842
-[4]|--&gt;&gt; SVM: 0.9488298627290135{0}  +  1.903620919741059{1} &gt;= 0.3551910457099439
-
-WARNING: reaching max number of iterations
-[5]|--&gt;&gt; SVM: 5.927674884276257e-08{0}  +  -5.161212013327088e-09{1} &gt;= 117.3195013999939
---------------------------------------------------------------------------------------------------------------------
-Finish running svm for 5 times.
-  Cannot divide by SVM perfectly.
-TRY SVM-I method ...
-
-WARNING: reaching max number of iterations
-[1]|--&gt;&gt; SVM-I:  
-     ------------------------------------------------------ 
-     |     2.897841435561821e-09{0}  +  -1.984696329157543e-09{1} &gt;= 2.204064472112805 
-     ------------------------------------------------------
---------------------------------------------------------------------------------------------------------------------
-Finish running svm_i for 1 times.
-  Cannot divide by SVM_I perfectly.
-</code></pre>
-
-<p>OR</p>
-
-<pre><code>TRY SVM method ...
-[1]|--&gt;&gt; SVM: 0.02497893880165301{0}  +  0.04488684229996243{1} &gt;= 0.4930927623732053
-[2]|--&gt;&gt; SVM: 0.05006490670073949{0}  +  0.07444829370948511{1} &gt;= -0.497035801599079
-[3]|--&gt;&gt; SVM: 0.06850289554435518{0}  +  0.1225333483680718{1} &gt;= 0.3864600126371673
-[4]}
+[1]}
 Program BUG! Program have encountered a Counter-Example trace.
-    Tr.0:(17,-6)-&gt;(74,-22)-&gt;(309,-77)-&gt;(1234,-227)-&gt;(4609,-352)-&gt;(15234,2148)-&gt;(115233,-8789)-&gt;(380854,53713)-&gt;(2880833,-219714)-&gt;(19286978,-3539974)-&gt;(72020829,-5492837)-&gt;(238033834,33570973)-&gt;(579817609,473030648)-&gt;(-152669766,-403935148)-&gt;end.
+    Tr.0:(32,43)-&gt;(33,43)-&gt;(34,43)-&gt;(35,43)-&gt;(36,43)-&gt;(37,43)-&gt;(38,43)-&gt;(39,43)-&gt;(40,43)-&gt;(41,43)-&gt;(42,43)-&gt;(43,43)-&gt;end.
 </code></pre>
-
-<p>OR </p>
-
-<pre><code>TRY SVM method ...
-[1]|--&gt;&gt; SVM: 0.0228714449157121{0}  +  0.04969384510902168{1} &gt;= -1.032441928970653
-[2]|--&gt;&gt; SVM: 0.04661772241941912{0}  +  0.101236507182503{1} &gt;= -1.065397150391887
-[3]|--&gt;&gt; SVM: 0.1003152151380666{0}  +  0.2167525184233222{1} &gt;= -1.125394018922579
-[4]|--&gt;&gt; SVM: 0.6664798004877639{0}  +  1.332944449663728{1} &gt;= -0.3333080811466971
-[5]|--&gt;&gt; SVM: 1.000001105317153{0}  +  2.000002164579499{1} &gt;= -0.9999953945152811
-[6]|--&gt;&gt; SVM: 0.9996619587913358{0}  +  1.999329598947583{1} &gt;= -1.000568136485526
-[7]|--&gt;&gt; SVM: 0.99984376818486{0}  +  1.999692744096919{1} &gt;= -1.00052077271539
---------------------------------------------------------------------------------------------------------------------
-Finish running svm for 7 times.
-  Hypothesis Invairant(Converged): {
-        1{0}  +  2{1} &gt;= -1
-  }
-</code></pre>
-
-<p>After running KLEE, we found out a counter example  (xa, ya) = (−198640688, 492751876).</p>
 
 <h2>
 <a id="user-content-reason" class="anchor" href="#reason" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reason</h2>
