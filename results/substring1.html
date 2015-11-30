@@ -861,7 +861,7 @@ body .markdown-body
   margin: 0.3em 0 0.25em -1.6em;
   vertical-align: middle;
 }</style><title>substring1</title></head><body><article class="markdown-body"><h1>
-<a id="user-content-pldi08" class="anchor" href="#pldi08" aria-hidden="true"><span class="octicon octicon-link"></span></a>pldi08</h1>
+<a id="user-content-substring1" class="anchor" href="#substring1" aria-hidden="true"><span class="octicon octicon-link"></span></a>substring1</h1>
 
 <h2>
 <a id="user-content-source" class="anchor" href="#source" aria-hidden="true"><span class="octicon octicon-link"></span></a>source</h2>
@@ -872,18 +872,19 @@ body .markdown-body
 <a id="user-content-program" class="anchor" href="#program" aria-hidden="true"><span class="octicon octicon-link"></span></a>program</h2>
 
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">substring1</span>(<span class="pl-k">int</span>* a) {
-    <span class="pl-k">int</span> j;
+    <span class="pl-k">int</span> j = a[<span class="pl-c1">2</span>];
+    j = <span class="pl-c1">0</span>;
     <span class="pl-k">int</span> i = a[<span class="pl-c1">0</span>];
     <span class="pl-k">int</span> k = a[<span class="pl-c1">1</span>];
 
     <span class="pl-c1">iif_assume</span> ((i &gt;= <span class="pl-c1">0</span>) &amp;&amp; (i &lt;= k) &amp;&amp; (k &gt;= <span class="pl-c1">0</span>) &amp;&amp; (k &lt;= <span class="pl-c1">100</span>)); 
     <span class="pl-k">while</span> (i &lt; k) {
-        <span class="pl-c1">recordi</span>(i, k);
+        <span class="pl-c1">recordi</span>(i, k, j);
         i++;    
         j++;
     }
-    <span class="pl-c1">recordi</span>(i, k);
-    <span class="pl-c1">iif_assert</span>(j &gt;= <span class="pl-c1">101</span>);
+    <span class="pl-c1">recordi</span>(i, k, j);
+    <span class="pl-c1">iif_assert</span>(j &lt; <span class="pl-c1">101</span>);
     <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 
@@ -891,9 +892,17 @@ body .markdown-body
 <a id="user-content-selective-learning-results" class="anchor" href="#selective-learning-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selective Learning Results:</h2>
 
 <pre><code>TRY SVM method ...
-[1]}
-Program BUG! Program have encountered a Counter-Example trace.
-    Tr.0:(32,43)-&gt;(33,43)-&gt;(34,43)-&gt;(35,43)-&gt;(36,43)-&gt;(37,43)-&gt;(38,43)-&gt;(39,43)-&gt;(40,43)-&gt;(41,43)-&gt;(42,43)-&gt;(43,43)-&gt;end.
+[1][1]|--&gt;&gt; SVM: 0.02327864541825785{0}  +  0.006170230060452191{1}  +  -0.02327854503788141{2} &gt;= -0.1330821244143965
+[2]|--&gt;&gt; SVM: 0.04375718341654493{0}  +  -0.03047652676843789{1}  +  -0.04375274815613602{2} &gt;= -3.535847132493362
+[3]|--&gt;&gt; SVM: 0.04374740677814946{0}  +  -0.03046559658723145{1}  +  -0.04374740653447689{2} &gt;= -3.534872587576281
+[4]|--&gt;&gt; SVM: 0.08288511731815174{0}  +  -0.07806112694204881{1}  +  -0.08288514101945732{2} &gt;= -7.816315276763142
+[5]|--&gt;&gt; SVM: 0.08287289632757296{0}  +  -0.0780496227597693{1}  +  -0.08287293178025204{2} &gt;= -7.815310793613884
+[6]|--&gt;&gt; SVM: 0.08287289632757296{0}  +  -0.0780496227597693{1}  +  -0.08287293178025204{2} &gt;= -7.815310793613884
+--------------------------------------------------------------------------------------------------------------------
+Finish running svm for 6 times.
+  Hypothesis Invairant(Converged): {
+        1.061797525692716{0}  +  -1{1}  +  -1.061797979925265{2} &gt;= -100.1325889513753
+  }
 </code></pre>
 
 <h2>
