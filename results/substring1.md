@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IIF experiment results:
 
 This is the result of our implementation of the paper [An Invariant Inference Framework by
@@ -39,3 +40,53 @@ cp ./libdwarf.a $HOME/lib
 * [f1a](f1a.html)
 * [f2](f2.html)
 * [substring1](substring1.html)
+=======
+# substring1
+
+## source 
+[Interpolants as Classifier](http://theory.stanford.edu/~aiken/publications/papers/cav12a.pdf) by Rahul Sharma, Aditya V. Nori, and Alex Aiken
+
+
+## program
+```c
+int substring1(int* a) {
+	int j = a[2];
+	j = 0;
+	int i = a[0];
+	int k = a[1];
+
+	iif_assume ((i >= 0) && (i <= k) && (k >= 0) && (k <= 100)); 
+	while (i < k) {
+		recordi(i, k, j);
+		i++;	
+		j++;
+	}
+	recordi(i, k, j);
+	iif_assert(j < 101);
+	return 0;
+}
+```
+
+
+
+
+## Selective Learning Results:
+
+
+```
+TRY SVM method ...
+[1][1]|-->> SVM: 0.02327864541825785{0}  +  0.006170230060452191{1}  +  -0.02327854503788141{2} >= -0.1330821244143965
+[2]|-->> SVM: 0.04375718341654493{0}  +  -0.03047652676843789{1}  +  -0.04375274815613602{2} >= -3.535847132493362
+[3]|-->> SVM: 0.04374740677814946{0}  +  -0.03046559658723145{1}  +  -0.04374740653447689{2} >= -3.534872587576281
+[4]|-->> SVM: 0.08288511731815174{0}  +  -0.07806112694204881{1}  +  -0.08288514101945732{2} >= -7.816315276763142
+[5]|-->> SVM: 0.08287289632757296{0}  +  -0.0780496227597693{1}  +  -0.08287293178025204{2} >= -7.815310793613884
+[6]|-->> SVM: 0.08287289632757296{0}  +  -0.0780496227597693{1}  +  -0.08287293178025204{2} >= -7.815310793613884
+--------------------------------------------------------------------------------------------------------------------
+Finish running svm for 6 times.
+  Hypothesis Invairant(Converged): {
+		1.061797525692716{0}  +  -1{1}  +  -1.061797979925265{2} >= -100.1325889513753
+  }
+```
+
+## Reason
+>>>>>>> 087ef05fed1e56e1143f87de75b28bd9b1463654

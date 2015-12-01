@@ -871,6 +871,7 @@ body .markdown-body
 <h2>
 <a id="user-content-program" class="anchor" href="#program" aria-hidden="true"><span class="octicon octicon-link"></span></a>program</h2>
 
+<<<<<<< HEAD
 <div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">main</span> (<span class="pl-k">int</span> argc, <span class="pl-k">char</span>** argv) {
     <span class="pl-k">int</span> x;  
     <span class="pl-k">int</span> y;
@@ -936,12 +937,27 @@ using namespace std;
         <span class="pl-k">else</span> cout &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span>+ -1 1:<span class="pl-pds">"</span></span> &lt;&lt; x &lt;&lt; <span class="pl-s"><span class="pl-pds">"</span> 2:<span class="pl-pds">"</span></span> &lt;&lt; y &lt;&lt; endl;
     }
 
+=======
+<div class="highlight highlight-source-c"><pre><span class="pl-k">int</span> <span class="pl-en">f1a</span>(<span class="pl-k">int</span>* a) {
+    <span class="pl-k">int</span> x = a[<span class="pl-c1">0</span>];
+    <span class="pl-k">int</span> y = a[<span class="pl-c1">1</span>];
+
+    <span class="pl-c1">iif_assume</span>(x + y &gt;= <span class="pl-c1">0</span>);
+    <span class="pl-k">while</span> (x &gt;= <span class="pl-c1">0</span>) {
+        <span class="pl-c1">recordi</span>(x, y);
+        x--;
+        y++;
+    }
+    <span class="pl-c1">recordi</span>(x, y);
+    <span class="pl-c1">iif_assert</span>(y &gt; <span class="pl-c1">0</span>);
+>>>>>>> 087ef05fed1e56e1143f87de75b28bd9b1463654
     <span class="pl-k">return</span> <span class="pl-c1">0</span>;
 }</pre></div>
 
 <h2>
 <a id="user-content-selective-learning-results" class="anchor" href="#selective-learning-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Selective Learning Results:</h2>
 
+<<<<<<< HEAD
 <p><a href="https://github.com/lijiaying/FIIF/blob/master/examples/f1a/out2">out2</a></p>
 
 <pre><code>make: 'ALL' is up to date.
@@ -957,5 +973,20 @@ using namespace std;
  ...9...svm... 1.99924066014287[0]  +  1.99925150785511[1] &gt;= -1.00017356339602 [100% (1765/1765)]
  ...*************************************  end  *************************************************************
 adjust coefficiency...&gt;&gt;  2[0]  +  2[1] &gt;= -1
+=======
+<pre><code>TRY SVM method ...
+[1]|--&gt;&gt; SVM: 0.04261108191180227{0}  +  0.04533095890326298{1} &gt;= -0.4687199553033317
+[2]|--&gt;&gt; SVM: 0.119927252649232{0}  +  0.1276104439945637{1} &gt;= 0.4972414153670788
+[3]|--&gt;&gt; SVM: 0.2520062251914799{0}  +  0.2703577033138738{1} &gt;= -0.06307933513310893
+[4]|--&gt;&gt; SVM: 0.3969270273942119{0}  +  0.404562062402048{1} &gt;= -0.6106132146003596
+[5]|--&gt;&gt; SVM: 1.99954774622784{0}  +  1.999554206995981{1} &gt;= -0.9995477462298936
+[6]|--&gt;&gt; SVM: 1.99953543312437{0}  +  1.999541797054178{1} &gt;= -1.000534570100932
+[7]|--&gt;&gt; SVM: 1.999535398125963{0}  +  1.999541762535188{1} &gt;= -1.000534610375297
+--------------------------------------------------------------------------------------------------------------------
+Finish running svm for 7 times.
+  Hypothesis Invairant(Converged): {
+        2{0}  +  2{1} &gt;= -1
+  }
+>>>>>>> 087ef05fed1e56e1143f87de75b28bd9b1463654
 </code></pre>
 </article></body></html>
