@@ -3,46 +3,62 @@
 This is the result of our implementation of the paper [An Invariant Inference Framework by
 Active Learning and SVMs](http://iifrm.github.io/PDF/AnInvariantInferenceFrameworkbyActiveLearningandSVMs.pdf) by Li Jiaying.
 
-##Documentation
-[HTML](http://iifrm.github.io/doc/html/index.html)
-[PDF](http://iifrm.github.io/doc/latex/refman.pdf)
+## Documentation
+* [HTML](http://iifrm.github.io/doc/html/index.html) outdated
+* [PDF](http://iifrm.github.io/doc/latex/refman.pdf) outdated
 
-
+## Installation
 For you to run the experiments on your own machine, please follow the steps below to set up your experiment environment.
 
-## Work on Invariant Inference Framework
-To build the framework currently is very easy,
-there is not much dependencies you need to satisfy before build the whole project.
-
-###Dependencies, for Windows/Linux/MacOSX Users:
-* [cmake](https://cmake.org/) version 2.8 or later.
-* [libsvm](https://www.csie.ntu.edu.tw/~cjlin/libsvm/) remember to put {libsvm}/bin folder into $PATH.
-* [z3](https://github.com/Z3Prover/z3) For Windows users, please put z3 to the folder
-> C:/Program Files
-* [klee](https://klee.github.io/) This is optional currently.
-* [Build tools](), such as make, Visual Studio 2015, or Xcode.
+#### pre-requirement
+* [git](https://git-scm.com/downloads)
+* [cmake](https://cmake.org/) version 2.8 or later
+* [clang](http://clang.llvm.org/get_started.html)
+* "make" and otherLLVM essential building tools, you can add if needed
+* [z3](https://github.com/Z3Prover/z3) the installation folder should be "/usr" or "/usr/local", otherwise you should modify $Z3_ROOT in cmake.base in the project directory so cmake can find it. 
+* [KLEE](https://klee.github.io/) only test llvm2.9 yet, so try to build KLEE by [build-llvm29](http://klee.github.io/build-llvm29/)
 
 
-###Build InvariantInferenceFramework
+#### patch KLEE source code
+This modification aims at generating smt2 file for each path condition.
+The principle is to add a new method call``Massert'', and in its method handler we output the path condition to files.
+
+* [download patch file](http://lijiaying.github.io/content/iif/klee_patch.tar.bz2) last update at 12:47pm on 10/03/2016
+
+##### Note:
++ The patch files are tested successfully if you use them just between KLEE configure step and KLEE make step. (between step 5 and 6 in [build-llvm29](http://klee.github.io/build-llvm29/))
++ Unpack the bz2 file, and then you can find "klee.patch" which is the patch file for whole KLEE project, ignore any warning during your patching process.
+```
+$ls
+klee klee.patch filepatch
+$cd klee
+$patch -p1 <../klee.patch
+```
++ If the last step does not work, you can patch each file by yourself. The patches for affected files are located in "klee_patch/filepatch" folder.
++ After the patch, you can continue to proceed KLEE make step (step 6 in [build-llvm29](http://klee.github.io/build-llvm29/))
+
+
+#### Get IIF
 ```
 git clone git@github.com:IIFrm/IIF.git
-cd IIF
-mkdir build
-cd build
-cmake .. -G [your platform]  // just use cmake .. if you are not sure
-make
 ```
 
+#### Test IIF
+```
+cd IIF
+mkdir build
+./runtest test
+./runtest conj
+```
 
+#### Notes
++ The folder 'backup/' and 'doc/' are not used currently.
++ The 'test', 'conj' are filenames located in 'cfg' folder without extension.
 
-### Add your tests to this framework
-#####As InvariantInferenceFramework is integrated with your examples, you need to do some modification on source code level before you can test your examples.
-* READ carefully one example file in test folder before you write your own test.
-* rewrite your loop code in a function with the name you like, my\_loop\_example for instance.
-* modify function and function name as parameter for register\_target which is called by main function.
-* rename your test file with the number of parameters and a "\_" as prefix. 
-* modify the second line in CMakeLists.txt in the project folder as the numbers of parameter you need in your program.
-* After the above step, you can make your project and then run the executable file.
+#### Add a new test
+- Follow the format such as 'cfg/test.cfg', put your test case in 'cfg' folder.
+- And then try to run the system and see what happens.
+
 
 
 <!--#Optional dependencies:
@@ -66,7 +82,7 @@ make
 #	```
 -->
 
-## Experiments results:
+## Experiments results:[OLD]
 * [conj](http://iifrm.github.io/results/conj.html)
 * >[conj_good](http://iifrm.github.io/results/conj_good.html)
 * >[conj_bad](http://iifrm.github.io/results/conj_bad.html)
@@ -80,3 +96,18 @@ make
 * [pldi08](http://iifrm.github.io/results/pldi08.html)
 * [substring1](http://iifrm.github.io/results/substring1.html)
 * [f3](http://iifrm.github.io/results/f3.html)
+
+
+## Experiments results:[NEW]
+* [conj](http://iifrm.github.io/new_results/conj.html)
+* [test](http://iifrm.github.io/new_results/test.html)
+* [PV1](http://iifrm.github.io/new_results/PV1.html)
+* [synergy.foo](http://iifrm.github.io/new_results/synergy.foo.html)
+* [V2](http://iifrm.github.io/new_results/V2.html)
+
+
+<!-- 
+* [pldi08](http://iifrm.github.io/new_results/pldi08.html)
+* [substring1](http://iifrm.github.io/new_results/substring1.html)
+* [f3](http://iifrm.github.io/new_results/f3.html)
+-->

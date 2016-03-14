@@ -1,0 +1,924 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>@font-face {
+  font-family: octicons-anchor;
+  src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body .markdown-body {
+    padding: 45px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    word-wrap: break-word;
+}
+
+pre {
+    font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #333;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
+.markdown-body a {
+  background-color: transparent;
+}
+
+.markdown-body a:active,
+.markdown-body a:hover {
+  outline: 0;
+}
+
+.markdown-body strong {
+  font-weight: bold;
+}
+
+.markdown-body h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.markdown-body img {
+  border: 0;
+}
+
+.markdown-body hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+.markdown-body pre {
+  overflow: auto;
+}
+
+.markdown-body code,
+.markdown-body kbd,
+.markdown-body pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.markdown-body input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.markdown-body html input[disabled] {
+  cursor: default;
+}
+
+.markdown-body input {
+  line-height: normal;
+}
+
+.markdown-body input[type="checkbox"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.markdown-body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.markdown-body td,
+.markdown-body th {
+  padding: 0;
+}
+
+.markdown-body input {
+  font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.markdown-body a {
+  color: #4078c0;
+  text-decoration: none;
+}
+
+.markdown-body a:hover,
+.markdown-body a:active {
+  text-decoration: underline;
+}
+
+.markdown-body hr {
+  height: 0;
+  margin: 15px 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.markdown-body hr:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body hr:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  line-height: 1.1;
+}
+
+.markdown-body h1 {
+  font-size: 30px;
+}
+
+.markdown-body h2 {
+  font-size: 21px;
+}
+
+.markdown-body h3 {
+  font-size: 16px;
+}
+
+.markdown-body h4 {
+  font-size: 14px;
+}
+
+.markdown-body h5 {
+  font-size: 12px;
+}
+
+.markdown-body h6 {
+  font-size: 11px;
+}
+
+.markdown-body blockquote {
+  margin: 0;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body ol ol,
+.markdown-body ul ol {
+  list-style-type: lower-roman;
+}
+
+.markdown-body ul ul ol,
+.markdown-body ul ol ol,
+.markdown-body ol ul ol,
+.markdown-body ol ol ol {
+  list-style-type: lower-alpha;
+}
+
+.markdown-body dd {
+  margin-left: 0;
+}
+
+.markdown-body code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 12px;
+}
+
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+
+.markdown-body .select::-ms-expand {
+  opacity: 0;
+}
+
+.markdown-body .octicon {
+  font: normal normal normal 16px/1 octicons-anchor;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.markdown-body .octicon-link:before {
+  content: '\f05c';
+}
+
+.markdown-body:before {
+  display: table;
+  content: "";
+}
+
+.markdown-body:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.markdown-body>*:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+.markdown-body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.markdown-body .anchor {
+  display: inline-block;
+  padding-right: 2px;
+  margin-left: -18px;
+}
+
+.markdown-body .anchor:focus {
+  outline: none;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  margin-top: 1em;
+  margin-bottom: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.markdown-body h1 .octicon-link,
+.markdown-body h2 .octicon-link,
+.markdown-body h3 .octicon-link,
+.markdown-body h4 .octicon-link,
+.markdown-body h5 .octicon-link,
+.markdown-body h6 .octicon-link {
+  color: #000;
+  vertical-align: middle;
+  visibility: hidden;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+  text-decoration: none;
+}
+
+.markdown-body h1:hover .anchor .octicon-link,
+.markdown-body h2:hover .anchor .octicon-link,
+.markdown-body h3:hover .anchor .octicon-link,
+.markdown-body h4:hover .anchor .octicon-link,
+.markdown-body h5:hover .anchor .octicon-link,
+.markdown-body h6:hover .anchor .octicon-link {
+  visibility: visible;
+}
+
+.markdown-body h1 {
+  padding-bottom: 0.3em;
+  font-size: 2.25em;
+  line-height: 1.2;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h1 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.75em;
+  line-height: 1.225;
+  border-bottom: 1px solid #eee;
+}
+
+.markdown-body h2 .anchor {
+  line-height: 1;
+}
+
+.markdown-body h3 {
+  font-size: 1.5em;
+  line-height: 1.43;
+}
+
+.markdown-body h3 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h4 {
+  font-size: 1.25em;
+}
+
+.markdown-body h4 .anchor {
+  line-height: 1.2;
+}
+
+.markdown-body h5 {
+  font-size: 1em;
+}
+
+.markdown-body h5 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body h6 {
+  font-size: 1em;
+  color: #777;
+}
+
+.markdown-body h6 .anchor {
+  line-height: 1.1;
+}
+
+.markdown-body p,
+.markdown-body blockquote,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body table,
+.markdown-body pre {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.markdown-body hr {
+  height: 4px;
+  padding: 0;
+  margin: 16px 0;
+  background-color: #e7e7e7;
+  border: 0 none;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 2em;
+}
+
+.markdown-body ul ul,
+.markdown-body ul ol,
+.markdown-body ol ol,
+.markdown-body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.markdown-body li>p {
+  margin-top: 16px;
+}
+
+.markdown-body dl {
+  padding: 0;
+}
+
+.markdown-body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.markdown-body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.markdown-body blockquote {
+  padding: 0 15px;
+  color: #777;
+  border-left: 4px solid #ddd;
+}
+
+.markdown-body blockquote>:first-child {
+  margin-top: 0;
+}
+
+.markdown-body blockquote>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown-body table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+}
+
+.markdown-body table th {
+  font-weight: bold;
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  padding: 6px 13px;
+  border: 1px solid #ddd;
+}
+
+.markdown-body table tr {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+.markdown-body img {
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #fff;
+}
+
+.markdown-body code {
+  padding: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+}
+
+.markdown-body code:before,
+.markdown-body code:after {
+  letter-spacing: -0.2em;
+  content: "\00a0";
+}
+
+.markdown-body pre>code {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.markdown-body .highlight {
+  margin-bottom: 16px;
+}
+
+.markdown-body .highlight pre,
+.markdown-body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.markdown-body .highlight pre {
+  margin-bottom: 0;
+  word-break: normal;
+}
+
+.markdown-body pre {
+  word-wrap: normal;
+}
+
+.markdown-body pre code {
+  display: inline;
+  max-width: initial;
+  padding: 0;
+  margin: 0;
+  overflow: initial;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.markdown-body pre code:before,
+.markdown-body pre code:after {
+  content: normal;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .pl-c {
+  color: #969896;
+}
+
+.markdown-body .pl-c1,
+.markdown-body .pl-s .pl-v {
+  color: #0086b3;
+}
+
+.markdown-body .pl-e,
+.markdown-body .pl-en {
+  color: #795da3;
+}
+
+.markdown-body .pl-s .pl-s1,
+.markdown-body .pl-smi {
+  color: #333;
+}
+
+.markdown-body .pl-ent {
+  color: #63a35c;
+}
+
+.markdown-body .pl-k {
+  color: #a71d5d;
+}
+
+.markdown-body .pl-pds,
+.markdown-body .pl-s,
+.markdown-body .pl-s .pl-pse .pl-s1,
+.markdown-body .pl-sr,
+.markdown-body .pl-sr .pl-cce,
+.markdown-body .pl-sr .pl-sra,
+.markdown-body .pl-sr .pl-sre {
+  color: #183691;
+}
+
+.markdown-body .pl-v {
+  color: #ed6a43;
+}
+
+.markdown-body .pl-id {
+  color: #b52a1d;
+}
+
+.markdown-body .pl-ii {
+  background-color: #b52a1d;
+  color: #f8f8f8;
+}
+
+.markdown-body .pl-sr .pl-cce {
+  color: #63a35c;
+  font-weight: bold;
+}
+
+.markdown-body .pl-ml {
+  color: #693a17;
+}
+
+.markdown-body .pl-mh,
+.markdown-body .pl-mh .pl-en,
+.markdown-body .pl-ms {
+  color: #1d3e81;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mq {
+  color: #008080;
+}
+
+.markdown-body .pl-mi {
+  color: #333;
+  font-style: italic;
+}
+
+.markdown-body .pl-mb {
+  color: #333;
+  font-weight: bold;
+}
+
+.markdown-body .pl-md {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.markdown-body .pl-mi1 {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.markdown-body .pl-mdr {
+  color: #795da3;
+  font-weight: bold;
+}
+
+.markdown-body .pl-mo {
+  color: #1d3e81;
+}
+
+.markdown-body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.markdown-body .plan-price-unit {
+  color: #767676;
+  font-weight: normal;
+}
+
+.markdown-body .task-list-item {
+  list-style-type: none;
+}
+
+.markdown-body .task-list-item+.task-list-item {
+  margin-top: 3px;
+}
+
+.markdown-body .task-list-item input {
+  margin: 0 0.35em 0.25em -1.6em;
+  vertical-align: middle;
+}
+
+.markdown-body .plan-choice {
+  padding: 15px;
+  padding-left: 40px;
+  display: block;
+  border: 1px solid #e0e0e0;
+  position: relative;
+  font-weight: normal;
+  background-color: #fafafa;
+}
+
+.markdown-body .plan-choice.open {
+  background-color: #fff;
+}
+
+.markdown-body .plan-choice.open .plan-choice-seat-breakdown {
+  display: block;
+}
+
+.markdown-body .plan-choice-free {
+  border-radius: 3px 3px 0 0;
+}
+
+.markdown-body .plan-choice-paid {
+  border-radius: 0 0 3px 3px;
+  border-top: 0;
+  margin-bottom: 20px;
+}
+
+.markdown-body .plan-choice-radio {
+  position: absolute;
+  left: 15px;
+  top: 18px;
+}
+
+.markdown-body .plan-choice-exp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.markdown-body .plan-choice-seat-breakdown {
+  margin-top: 10px;
+  display: none;
+}
+
+.markdown-body :checked+.radio-label {
+  z-index: 1;
+  position: relative;
+  border-color: #4078c0;
+}
+</style><title>test</title></head><body><article class="markdown-body"><h1>
+<a id="user-content-test" class="anchor" href="#test" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>test</h1>
+
+<h2>
+<a id="user-content-cfg-file" class="anchor" href="#cfg-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>cfg-file</h2>
+
+<div class="highlight highlight-source-c"><pre>names= xa ya
+precondition=xa + ya &gt; <span class="pl-c1">0</span>
+loopcondition=xa &gt; <span class="pl-c1">0</span>
+loop=xa--; 
+ya++;
+postcondition=ya &gt;= <span class="pl-c1">0</span></pre></div>
+
+<h2>
+<a id="user-content-program" class="anchor" href="#program" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>program</h2>
+
+<div class="highlight highlight-source-c"><pre># <span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">"</span>iif.h<span class="pl-pds">"</span></span>
+# <span class="pl-k">include</span> <span class="pl-s"><span class="pl-pds">&lt;</span>iostream<span class="pl-pds">&gt;</span></span>
+using namespace iif;
+
+<span class="pl-k">int</span> <span class="pl-en">loopFunction</span>(<span class="pl-k">int</span> a[]) {
+<span class="pl-k">int</span> xa = a[<span class="pl-c1">0</span>];
+<span class="pl-k">int</span> ya = a[<span class="pl-c1">1</span>];
+
+<span class="pl-c1">iif_assume</span>(xa + ya &gt; <span class="pl-c1">0</span>);
+<span class="pl-k">while</span>(xa &gt; <span class="pl-c1">0</span>)
+{
+<span class="pl-c1">recordi</span>(xa, ya);
+xa--; 
+ya++;
+}
+<span class="pl-c1">recordi</span>(xa, ya);
+<span class="pl-c1">iif_assert</span>(ya &gt;= <span class="pl-c1">0</span>);
+<span class="pl-k">return</span> <span class="pl-c1">0</span>;
+}
+
+
+<span class="pl-k">int</span> <span class="pl-en">main</span>(<span class="pl-k">int</span> argc, <span class="pl-k">char</span>** argv)
+ {
+iifContext <span class="pl-smi">context</span>(<span class="pl-s"><span class="pl-pds">"</span>../tmp/test.var<span class="pl-pds">"</span></span>, loopFunction, <span class="pl-s"><span class="pl-pds">"</span>loopFunction<span class="pl-pds">"</span></span>);
+context.<span class="pl-c1">addLearner</span>(<span class="pl-s"><span class="pl-pds">"</span>linear<span class="pl-pds">"</span></span>);
+<span class="pl-k">return</span> context.<span class="pl-c1">learn</span>(<span class="pl-s"><span class="pl-pds">"</span>../tmp/test<span class="pl-pds">"</span></span>);
+}
+</pre></div>
+
+<h2>
+<a id="user-content-selective-learning-results" class="anchor" href="#selective-learning-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Selective Learning Results:</h2>
+
+<pre><code>lijiaying@workstation:~/Research/GitHub/IIF$ ./runtest.sh test
+Converting the given config file to a valid cplusplus file...Generating CMakeLists file for further construction...[DONE]
+Build the project...
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/lijiaying/Research/GitHub/IIF/build
+Scanning dependencies of target test
+[ 11%] Building CXX object CMakeFiles/test.dir/test/test.cpp.o
+[ 22%] Building CXX object CMakeFiles/test.dir/src/config.cpp.o
+[ 33%] Building CXX object CMakeFiles/test.dir/src/instrumentation.cpp.o
+[ 44%] Building CXX object CMakeFiles/test.dir/src/linear_learner.cpp.o
+[ 55%] Building CXX object CMakeFiles/test.dir/src/candidates.cpp.o
+[ 66%] Building CXX object CMakeFiles/test.dir/src/equation.cpp.o
+[ 77%] Building CXX object CMakeFiles/test.dir/src/iif.cpp.o
+[ 88%] Building CXX object CMakeFiles/test.dir/src/svm_core.cpp.o
+Linking CXX executable test
+[100%] Built target test
+Running the project to generate invariant candidiate...
+Using LINEAR kernel...
+[1]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-5,199)+|(199,-153)+|(190,-29)+|(133,-116)+||(-89,132)+|(-145,-117)-|(54,18)+|(-141,-30)-|(166,47)+|(-88,179)+|(13,115)+|(35,28)+|(100,45)+|(-23,-29)-|(22,11)+|(126,-184)-|(82,124)+|(-136,144)+|(-33,197)+|(-173,78)?}
+(2) prepare training data... +[1009|130] ==&gt; [1009+|130-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.606943 + (0.0302999)*xa + (0.0313519)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:        [FF]   [FAIL] neXt round 
+[2]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-200,-45)-|(161,128)+|(174,-180)-|(-103,139)+||(26,-48)-|(109,-131)-|(-88,66)?|(-83,61)?|(34,-55)-|(-35,15)?|(-35,13)?|(-25,3)?|(152,-173)-|(143,-163)-|(-42,20)?|(63,-85)-|(24,-45)-|(-165,143)?|(-183,163)?|(139,-160)-}
+(2) prepare training data... +[163|583] ==&gt; [1172+|713-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; -0.353355 + (0.104228)*xa + (0.107835)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[3,3] [FF]   [FAIL] neXt round 
+[3]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(135,-188)-|(-106,-35)-|(91,133)+|(-85,-91)-||(88,-84)+|(-2,4)+|(-98,102)+|(-86,90)+|(53,-51)+|(-150,153)+|(-72,75)+|(104,-100)+|(-19,21)+|(-16,19)+|(-110,114)+|(47,-45)+|(-40,42)+|(140,-137)+|(52,-50)+|(26,-23)+}
+(2) prepare training data... +[401|138] ==&gt; [1573+|851-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.5 + (0.25)*xa + (0.25)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[15,3] [FF]   [FAIL] neXt round 
+[4]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-159,162)+|(166,4)+|(-128,-59)-|(182,-70)+||(57,-58)-|(28,-31)-|(101,-103)-|(-37,35)?|(-34,31)?|(51,-53)-|(-143,141)?|(-123,121)?|(138,-140)-|(51,-52)-|(137,-138)-|(76,-79)-|(-63,60)?|(-56,53)?|(136,-138)-|(-6,3)?}
+(2) prepare training data... +[351|355] ==&gt; [1924+|1206-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; -0.332667 + (0.666334)*xa + (0.666334)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[12,15] [FF]   [FAIL] neXt round 
+[5]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-148,85)?|(-68,190)+|(-44,101)+|(-96,128)+||(-14,14)?|(47,-47)?|(-186,188)+|(-148,147)?|(89,-90)-|(81,-80)+|(-146,148)+|(-107,107)?|(93,-94)-|(194,-193)+|(-1,1)?|(-52,53)+|(-12,14)+|(-29,30)+|(-51,52)+|(125,-123)+}
+(2) prepare training data... +[276|0] ==&gt; [2200+|1206-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; -0.000672433 + (0.999888)*xa + (0.999884)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[11,12] [FF]   [FAIL] neXt round 
+[6]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(59,121)+|(194,-167)+|(-5,123)+|(133,39)+||(-175,175)?|(-56,57)+|(48,-49)-|(-194,193)?|(-140,141)+|(153,-152)+|(-180,179)?|(162,-161)+|(-111,110)?|(57,-56)+|(-148,148)?|(119,-118)+|(-34,34)?|(-185,185)?|(185,-185)?|(-6,6)?}
+(2) prepare training data... +[392|0] ==&gt; [2592+|1206-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.000790336 + (0.999787)*xa + (0.99979)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,11] [FF]   [FAIL] neXt round 
+[7]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(161,-180)-|(139,-193)-|(168,125)+|(175,-86)+||(-156,155)?|(51,-51)?|(178,-179)-|(125,-126)-|(195,-197)-|(-131,131)?|(163,-163)?|(149,-150)-|(-87,85)?|(-39,37)?|(-124,122)?|(30,-32)-|(-90,88)?|(-170,168)?|(43,-44)-|(86,-87)-}
+(2) prepare training data... +[345|400] ==&gt; [2937+|1606-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.000787438 + (0.999788)*xa + (0.999791)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[12,4] [FF]   [FAIL] neXt round 
+[8]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(16,167)+|(-76,197)+|(161,158)+|(24,88)+||(151,-153)-|(162,-164)-|(76,-78)-|(-82,82)?|(-122,121)?|(-91,90)?|(150,-150)?|(-145,143)?|(134,-136)-|(117,-118)-|(-102,102)?|(95,-95)?|(193,-195)-|(182,-184)-|(137,-138)-|(198,-199)-}
+(2) prepare training data... +[180|20] ==&gt; [3117+|1626-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; (1)*xa + (1)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,12] [FF]   [FAIL] neXt round 
+[9]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-60,-79)-|(-169,187)+|(-105,11)?|(183,-153)+||(63,-64)-|(87,-87)?|(120,-121)-|(85,-85)?|(28,-28)?|(-187,188)+|(-67,67)?|(155,-154)+|(117,-117)?|(-99,99)?|(163,-162)+|(-120,121)+|(190,-189)+|(131,-131)?|(93,-92)+|(157,-157)?}
+(2) prepare training data... +[187|1] ==&gt; [3304+|1627-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 9.66338e-12 + (1)*xa + (1)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[6,4] [FF]   [FAIL] neXt round 
+[10]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-150,-119)-|(-177,162)?|(-80,72)?|(-139,-193)-||(-192,191)?|(43,-44)-|(50,-51)-|(-153,152)?|(-106,104)?|(183,-183)?|(-147,146)?|(78,-78)?|(-69,67)?|(77,-78)-|(44,-45)-|(153,-154)-|(-125,125)?|(44,-44)?|(-109,109)?|(-111,109)?}
+(2) prepare training data... +[0|2] ==&gt; [3304+|1629-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 9.66338e-12 + (1)*xa + (1)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[6,6] [FT]  [FAIL] neXt round 
+[11]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [36] {(-42,115)+|(-12,160)+|(-131,-132)-|(-177,-58)-||(97,-98)-|(96,-98)-|(-191,189)?|(-134,132)?|(-167,167)?|(184,-184)?|(-109,109)?|(130,-132)-|(-95,95)?|(-92,91)?|(-112,110)?|(41,-41)?|(-197,196)?|(127,-129)-|(151,-153)-|(192,-192)?|(58,-59)-|(-7,7)?|(64,-64)?|(-155,155)?|(-99,97)?|(-63,63)?|(-11,9)?|(-98,96)?|(-169,168)?|(-41,41)?|(-71,71)?|(37,-37)?|(93,-93)?|(110,-110)?|(35,-35)?|(-161,160)?}
+(2) prepare training data... +[2|2] ==&gt; [3306+|1631-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; (1)*xa + (1)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,6] [TF]   [FAIL] neXt round 
+[12]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-100,-129)-|(-108,-10)-|(-185,-179)-|(156,30)+||(-51,50)?|(-116,117)+|(-12,12)?|(-7,8)+|(151,-152)-|(-131,131)?|(132,-131)+|(55,-54)+|(117,-117)?|(-151,150)?|(-12,13)+|(129,-128)+|(131,-130)+|(85,-85)?|(-22,23)+|(65,-66)-}
+(2) prepare training data... +[161|3] ==&gt; [3467+|1634-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; (1)*xa + (1)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,4] [FF]   [FAIL] neXt round 
+[13]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(111,-52)+|(56,-29)+|(180,73)+|(58,-81)-||(60,-59)+|(110,-109)+|(-152,152)?|(153,-152)+|(156,-156)?|(-71,71)?|(91,-92)-|(-81,81)?|(166,-165)+|(-77,78)+|(70,-69)+|(200,-199)+|(-36,36)?|(130,-129)+|(100,-99)+|(-86,85)?}
+(2) prepare training data... +[300|59] ==&gt; [3767+|1693-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; xa + ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[2,4] [FF]   [FAIL] neXt round 
+[14]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(1,28)+|(31,-129)-|(-173,159)?|(-183,99)?||(138,-139)-|(139,-138)+|(-54,53)?|(133,-133)?|(-167,166)?|(153,-152)+|(23,-24)-|(182,-181)+|(34,-33)+|(33,-34)-|(-187,187)?|(22,-21)+|(164,-165)-|(-157,158)+|(-200,200)?|(-184,184)?}
+(2) prepare training data... +[3|32] ==&gt; [3770+|1725-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; -0.000212634 + (0.999785)*xa + (0.999787)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[5,2] [FF]   [FAIL] neXt round 
+[15]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-123,-16)-|(87,9)+|(-30,-77)-|(-49,120)+||(-13,13)?|(-193,194)+|(80,-80)?|(-187,188)+|(136,-137)-|(184,-183)+|(109,-109)?|(92,-92)?|(-196,196)?|(-110,110)?|(-145,145)?|(-54,55)+|(-186,186)?|(-77,77)?|(43,-43)?|(-177,177)?}
+(2) prepare training data... +[91|2] ==&gt; [3861+|1727-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.00065016 + (0.999786)*xa + (0.999788)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[5,5] [FF]   [FAIL] neXt round 
+[16]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(-158,186)+|(42,99)+|(131,-140)-|(33,-31)+||(-102,102)?|(29,-30)-|(91,-91)?|(180,-181)-|(156,-158)-|(62,-62)?|(-198,197)?|(-40,40)?|(198,-199)-|(-83,82)?|(25,-27)-|(137,-137)?|(-62,61)?|(88,-89)-|(-62,62)?|(61,-61)?}
+(2) prepare training data... +[44|132] ==&gt; [3905+|1859-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.000662419 + (0.999782)*xa + (0.999784)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,5] [FF]   [FAIL] neXt round 
+[17]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [20] {(38,21)+|(-141,-163)-|(194,184)+|(91,44)+||(23,-25)-|(67,-67)?|(134,-134)?|(-90,90)?|(-2,1)?|(10,-11)-|(-198,196)?|(-103,101)?|(-181,181)?|(116,-117)-|(-159,159)?|(-142,142)?|(-65,63)?|(-95,94)?|(-98,98)?|(31,-33)-}
+(2) prepare training data... +[287|1] ==&gt; [4192+|1860-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.000662419 + (0.999782)*xa + (0.999784)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,4] [FT]  [FAIL] neXt round 
+[18]Linear SVM------------------------{1}------------------------------------------------------------------------------------
+(1) execute programs... [36] {(153,17)+|(-188,-113)-|(48,-107)-|(2,139)+||(-78,77)?|(-17,17)?|(31,-31)?|(56,-57)-|(-68,68)?|(85,-87)-|(-155,155)?|(-78,76)?|(-113,112)?|(-120,118)?|(-199,198)?|(-198,197)?|(-131,131)?|(-13,13)?|(-66,64)?|(-159,158)?|(-133,132)?|(174,-175)-|(-187,186)?|(108,-109)-|(-50,50)?|(77,-79)-|(186,-187)-|(77,-78)-|(-137,135)?|(143,-143)?|(78,-79)-|(9,-9)?|(168,-169)-|(-141,141)?|(-24,22)?|(173,-175)-}
+(2) prepare training data... +[0|50] ==&gt; [4192+|1910-]
+(3) start training with mapping dimension {1}...|--&gt;&gt; 0.000662419 + (0.999782)*xa + (0.999784)*ya &gt;= 0
+(4) checking training traces. [100%] [PASS]
+(5) check convergence:         sv[4,4] [TT]  [SUCCESS] rounding off
+--------------------------------------------------------------------------------------------------------------------
+---&gt;: 1 + xa + ya &gt;= 0[-0,2]
+Candidates size = 1
+Hypothesis Invariant(Converged): {
+    0.000662419 + (0.999782)*xa + (0.999784)*ya &gt;= 0
+}
+save to file succeed.
+Invariant file is located at tmp/test.inv
+1 + xa + ya &gt;= 0
+Generating a new config file contains the invariant candidate...[Done]
+Generating three C files to do the verification by KLEE[Done]
+Compiling the C files and Run KLEE...
+Compiling the C files and Run KLEE...1
+KLEE: output directory is "/home/lijiaying/Research/GitHub/IIF/tmp/test_klee1/klee-out-0"
+-&gt;&gt;Function&lt;klee_assertion&gt; $$filename:failAssert00001.smt2
+KLEE: ERROR: /home/lijiaying/Research/GitHub/IIF/tmp/test_klee1/test_klee1.c:11: ASSERTION FAIL: 1 + xa + ya &gt;= 0
+KLEE: NOTE: now ignoring this error at this location
+
+KLEE: done: total instructions = 34
+KLEE: done: completed paths = 2
+KLEE: done: generated tests = 2
+processing failAssert00001.smt2 --&gt; sat
+&gt;&gt;&gt;NOT A VALID INVARIVANT...Reason: Property I (precondition ==&gt; invariant) FAILED. stop here...
+
+</code></pre>
+</article></body></html>
