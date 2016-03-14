@@ -1,4 +1,4 @@
-# synergy.foo.md
+# synergy.foo
 
 ## cfg-file
 ```c
